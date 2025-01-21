@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Probabilitas Jumlah Barang Masuk</title>
+</head>
+<body>
+    <h1>Simulasi Probabilitas Jumlah Barang yang Masuk Menggunakan Distribusi Poisson</h1>
+
+    <form method="POST">
+        <label for="lambda">Rata-rata (λ) jumlah barang yang masuk:</label>
+        <input type="number" step="any" name="lambda" required><br><br>
+
+        <label for="k">Jumlah barang yang diinginkan (k):</label>
+        <input type="number" name="k" required><br><br>
+
+        <button type="submit">Hitung Probabilitas</button>
+    </form>
+
+    {% if probability is not none %}
+        <h2>Hasil Perhitungan:</h2>
+        <p>Probabilitas bahwa jumlah barang yang masuk adalah {{ k }} adalah: {{ probability }}</p>
+        
+        <h3>Langkah-langkah Perhitungan:</h3>
+        <ul>
+            <li>{{ steps.lambda_k }}</li>
+            <li>{{ steps.exp_neg_lambda }}</li>
+            <li>{{ steps.k_factorial }}</li>
+            <li>{{ steps.probability }}</li>
+        </ul>
+    {% endif %}
+</body>
+</html>
